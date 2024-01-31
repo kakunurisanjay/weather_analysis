@@ -1,0 +1,21 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load the Data
+df = pd.read_csv('weather_data.csv')
+
+# Display basic information about the DataFrame
+print(df.info())
+
+# Data Exploration
+# Display the first few rows of the DataFrame
+print(df.head())
+
+sns.pairplot(df[['Temperature (C)', 'Apparent Temperature (C)', 'Humidity', 'Wind Speed (km/h)', 'Pressure (millibars)']])
+plt.show()
+plt.figure(figsize=(12, 6))
+sns.boxplot(x='Summary', y='Temperature (C)', data=df)
+plt.xticks(rotation=45)
+plt.title('Box Plot of Temperature by Summary')
+plt.show()
